@@ -5,9 +5,14 @@ from urllib.request import urlopen
 import csv
 from fractions import Fraction
 from urllib.parse import urlencode
+from cs50 import SQL
+
+db = SQL("sqlite:///nutrition.db")
 
 
 def scrape():
+    data = []
+
     # open the csv file
     with open('index.csv', 'a') as csv_file:
         # create the writer
@@ -62,7 +67,13 @@ def scrape():
                     total_fat = float(amount_serving[1].split(': ')[1].split(' ')[0])
                     cholesterol = float(amount_serving[4].split(': ')[1].split(' ')[0])
                     sodium = float(amount_serving[5].split(': ')[1].split(' ')[0])
+                    # Protein
                     protein = float(amount_serving[9].split(': ')[1].split(' ')[0])
+
+                    insert_data = {"name": item_name, "meal": i, "calories": calories, "protein": protein, "fat": total_fat, "cho": cholesterol}
+                    db.execute("INSERT INTO food (name, meal, calories, protein, fat, cho) VALUES (:name, :meal, :calories, :protein, :fat, :cho)",
+                        name = insert_data["name"], meal = insert_data["meal"], calories = insert_data["calories"], protein = insert_data["protein"], fat = insert_data["total_fat"], cho = insert_data["cho"])
+
 
                     # open a csv file with append, so old data will not be erased
                     writer.writerow([item_name, i, serving_size, calories, calories_from_fat, total_fat, cholesterol, sodium, protein])
@@ -125,6 +136,12 @@ def scrape():
                 sugars = float(amount_serving[8].split(': ')[1].split(' ')[0])
                 protein = float(amount_serving[9].split(': ')[1].split(' ')[0])
 
+                insert_data = {"name": item_name, "meal": i, "calories": calories, "protein": protein, "fat": total_fat, "cho": cholesterol}
+
+                print (insert_data)
+
+                db.execute("INSERT INTO food (name, meal, calories, protein, fat, cho) VALUES (:name, :meal, :calories, :protein, :fat, :cho)",
+                name = insert_data["name"], meal = insert_data["meal"], calories = insert_data["calories"], protein = insert_data["protein"], fat = insert_data["fat"], cho = insert_data["cho"])
 
 
                 # open a csv file with append, so old data will not be erased
