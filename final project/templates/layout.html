@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<!-- https://github.com/BlackrockDigital/startbootstrap-business-frontpage -->
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Crimson Eat</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/main.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/styles.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Crimson Eat: {% block title %}{% endblock %}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        {% if session.user_id %}
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/menu">Today's Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/diet">My Diet Report</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/history">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+          </ul>
+        </div>
+        {% else %}
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/register" >Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login" >Log In</a>
+            </li>
+          </ul>
+        {% endif %}
+      </div>
+    </nav>
+
+    <!-- Header with Background Image -->
+    <header class="business-header">
+      <img src="/static/logo.jpg" alt="Logo">
+    </header>
+
+    <main class="container p-5">
+      {% block main %}{% endblock %}
+    </main>
+
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white" id="date"></p>
+            <p class="m-0 text-center text-white">Data accessed from <a href="https://dining.harvard.edu/campus-dining/undergraduate-dining/weeks-menu">Menu - Harvard University Dining Services</a></p>
+            <p class="m-0 text-center text-white">Designed by Albert Mao and Mike Zhuohan Shao</p>
+        </div>
+    </footer>
+
+    <script>
+    var d = new Date();
+    document.getElementById("date").innerHTML = d.toString();
+    </script>
+  </body>
+
+</html>

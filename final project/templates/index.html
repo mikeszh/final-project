@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="col-sm-8">
+          <h2 class="mt-4">Your Customized Diet Recommendations</h2>
+          <p>You need {{ calories }} calories per day to maintain your weight</p>
+          <p>Your daily protein intake should be 15% to 25% of total calories</p>
+          <p>Your daily fat intake should be 20% to 35% of total calories</p>
+          <p>Your daily cholesterol intake should be < 300 milligrams</p>
+          <p>Your daily vitamin C intake should be {{ vitaminc }} milligrams</p>
+          <p>Your daily iron intake should be {{ iron }} milligrams</p>
+          <p>Your daily calcium intake should be around 1200 milligrams</p>
+        </div>
+        <div class="col-sm-4">
+          <h2 class="mt-4">What We Do</h2>
+          <p>Worried about gaining pounds? Want to better plan your diet and become fitter? Use Crimson Eat to help you make wiser choices about your diet!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 my-4">
+          <div class="card">
+            <img class="card-img-top" src="/static/breakfast.jpg" alt="breakfast">
+            <div class="card-body">
+              <h4 class="card-title">Breakfast Menu</h4>
+              <p class="card-text">Check today's breakfast options!</p>
+            </div>
+            <div class="card-footer">
+              <a href="/menu" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4 my-4">
+          <div class="card">
+            <img class="card-img-top" src="/static/lunch.jpg" alt="lunch">
+            <div class="card-body">
+              <h4 class="card-title">Lunch Menu</h4>
+              <p class="card-text">Check today's lunch options!</p>
+            </div>
+            <div class="card-footer">
+              <a href="/lunch" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 my-4">
+          <div class="card">
+            <img class="card-img-top" src="/static/dinner.jpg" alt="dinner">
+            <div class="card-body">
+              <h4 class="card-title">Dinner Menu</h4>
+              <p class="card-text">Check today's dinner options!</p>
+            </div>
+            <div class="card-footer">
+              <a href="/dinner" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

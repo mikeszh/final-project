@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <!-- Set the four categories of information -->
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Meal</th>
+                <th scope="col">Calories</th>
+                <th scope="col">Protein</th>
+                <th scope="col">Fat</th>
+                <th scope="col">Cholesterol</th>
+                <th scope="col">Vitamin C</th>
+                <th scope="col">Iron</th>
+                <th scope="col">Calcium</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over each student to fill in corresponding information -->
+            <ul>
+            <tr>
+                <th scope="row">1</th>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
